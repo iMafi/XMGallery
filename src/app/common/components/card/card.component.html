@@ -1,0 +1,8 @@
+<div class="photo-card" [ngClass]="{'full-screen': isDetail}" >
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title> {{ author }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="https://picsum.photos/{{ id }}" alt="{{ author }}">
+</mat-card>
+</div>

@@ -1,0 +1,9 @@
+<div class="favorites-container">
+  <ng-container *ngFor="let photo of favorites">
+    <xm-app-card
+      [author]="photo.author"
+      [id]="photo.id"
+      (click)="navigateToDetailsPage(photo.id)"
+    ></xm-app-card>
+  </ng-container>
+</div>

@@ -1,0 +1,8 @@
+<div class="photo-container">
+  <xm-app-card
+    [author]="photo.author"
+    [id]="photo.id"
+    [isDetail]="true"
+  ></xm-app-card>
+  <button mat-flat-button (click)="removeFromFavorites()">Remove from favorites</button>
+</div>

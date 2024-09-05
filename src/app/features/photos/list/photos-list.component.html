@@ -1,0 +1,12 @@
+<div class="photos-container" #scroll>
+  <ng-container>
+    <ng-container *ngFor="let photo of photos">
+      <xm-app-card
+        [author]="photo.author"
+        [id]="photo.id"
+        (click)="addToFavorites(photo)"
+      ></xm-app-card>
+    </ng-container>
+  </ng-container>
+  <xm-app-spinner *ngIf="showSpinner"></xm-app-spinner>
+</div>
