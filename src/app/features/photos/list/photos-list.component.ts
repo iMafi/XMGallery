@@ -52,13 +52,11 @@ export class PhotosListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   addToFavorites(photo: any): void {
-    console.log(photo)
     this.favoritesService.addToFavorites(photo);
     this.snackBar.open('Added to Favorites');
   }
 
   private generateNewPhotos(): void {
-    // Http calls are self completed so no need to unsubscribe for them
     this.photosService.getRandomPhotos()
       .pipe(
         takeUntil(this.unsubscribe$)

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IPhoto } from "../../../common/interfaces/photo.interface";
 import { ActivatedRoute } from "@angular/router";
 import { FavoritesService } from "../../../common/services/favorites.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'xm-app-photo',
@@ -16,7 +17,8 @@ export class PhotoComponent implements OnInit {
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
-    private readonly favoritesService: FavoritesService
+    private readonly favoritesService: FavoritesService,
+    private readonly snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +34,7 @@ export class PhotoComponent implements OnInit {
   removeFromFavorites(): void {
     if (this.photo.id) {
       this.favoritesService.removeFromFavorites(this.photo.id);
+      this.snackBar.open('Removed from Favorites');
     }
   }
 }

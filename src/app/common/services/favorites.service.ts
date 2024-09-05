@@ -8,7 +8,7 @@ export class FavoritesService {
 
   constructor() { }
 
-  addToFavorites(photo: any): void {
+  addToFavorites(photo: IPhoto): void {
     const items = this.getItems();
     if (items) {
       const favorites = JSON.parse(items);
