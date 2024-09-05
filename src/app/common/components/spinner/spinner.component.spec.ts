@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SpinnerComponent } from './spinner.component';
+import {NO_ERRORS_SCHEMA} from "@angular/core";
 
 describe('SpinnerComponent', () => {
   let component: SpinnerComponent;
@@ -8,7 +9,8 @@ describe('SpinnerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SpinnerComponent]
+      declarations: [SpinnerComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     });
     fixture = TestBed.createComponent(SpinnerComponent);
     component = fixture.componentInstance;

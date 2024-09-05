@@ -14,10 +14,10 @@ import { IPhoto } from "../../../common/interfaces/photo.interface";
 })
 export class PhotosListComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('scroll') scroll: ElementRef | undefined;
-  virtualScrollOffset = 200;
-  unsubscribe$ = new Subject<void>();
+  virtualScrollOffset: number = 200;
+  unsubscribe$: Subject<void> = new Subject<void>();
   photos: Array<IPhoto> = [];
-  showSpinner = true;
+  showSpinner: boolean = true;
 
   constructor(
     private readonly photosService: PhotosService,
@@ -51,7 +51,7 @@ export class PhotosListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  addToFavorites(photo: any): void {
+  addToFavorites(photo: IPhoto): void {
     this.favoritesService.addToFavorites(photo);
     this.snackBar.open('Added to Favorites');
   }
@@ -61,7 +61,7 @@ export class PhotosListComponent implements OnInit, AfterViewInit, OnDestroy {
       .pipe(
         takeUntil(this.unsubscribe$)
       )
-      .subscribe((data) => {
+      .subscribe((data: IPhoto[]) => {
         this.photos = this.photos.concat(data);
         this.showSpinner = false;
       })

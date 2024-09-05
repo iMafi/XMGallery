@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { IPhoto } from "../../../common/interfaces/photo.interface";
 import { ActivatedRoute } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
+
+import { IPhoto } from "../../../common/interfaces/photo.interface";
 import { FavoritesService } from "../../../common/services/favorites.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
+
 
 @Component({
   selector: 'xm-app-photo',
@@ -23,7 +25,7 @@ export class PhotoComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('photoId');
-    if (id) {
+    if (id && !isNaN(parseInt(id))) {
       const photo = this.favoritesService.getSinglePhoto(id);
       if (photo) {
         this.photo = photo;
